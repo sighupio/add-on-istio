@@ -1,23 +1,27 @@
 <!-- markdownlint-disable MD033 -->
-<h1>
-    <img src="https://github.com/sighupio/fury-distribution/blob/main/docs/assets/fury-epta-white.png?raw=true" align="left" width="90" style="margin-right: 15px"/>
-    Kubernetes Fury Service Mesh
+<h1 align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sighupio/distribution/refs/heads/main/docs/assets/white-logo.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sighupio/distribution/refs/heads/main/docs/assets/black-logo.png">
+  <img alt="Shows a black logo in light color mode and a white one in dark color mode." src="https://raw.githubusercontent.com/sighupio/distribution/refs/heads/main/docs/assets/white-logo.png">
+</picture><br/>
+  Istio Add-On Module
 </h1>
 <!-- markdownlint-enable MD033 -->
 
 ![Release](https://img.shields.io/badge/Latest%20Release-v3.1.0-blue)
-![License](https://img.shields.io/github/license/sighupio/fury-kubernetes-service-mesh?label=License)
+![License](https://img.shields.io/github/license/sighupio/add-on-istio?label=License)
 ![Slack](https://img.shields.io/badge/slack-@kubernetes/fury-yellow.svg?logo=slack&label=Slack)
 
-<!-- <KFD-DOCS> -->
+<!-- <SD-DOCS> -->
 
-**Kubernetes Fury Istio** add-on module for the [Kubernetes Fury Distribution (KFD)][kfd-repo] allows to transparently add Istio Mesh capabilities to your KFD cluster.
+**Istio Add-On Module** add-on module for the [SIGHUP Distribution (SD)][kfd-repo] allows to transparently add Istio Mesh capabilities to your SD cluster.
 
-If you are new to KFD please refer to the [official documentation][kfd-docs] on how to get started with KFD.
+If you are new to SD please refer to the [official documentation][sd-docs] on how to get started with SD.
 
 ## Overview
 
-**Kubernetes Fury Istio** add-on module deploys Istio service mesh into a Kubernetes cluster. A service mesh, such as Istio, allows to transparently add capabilities like observability, traffic management, and security to applications, without modifying their source code. These capabilities are of great value when running microservices at scale or under strict security requirements.
+**Istio Add-On Module** add-on module deploys Istio service mesh into a Kubernetes cluster. A service mesh, such as Istio, allows to transparently add capabilities like observability, traffic management, and security to applications, without modifying their source code. These capabilities are of great value when running microservices at scale or under strict security requirements.
 
 ### Istio
 
@@ -37,7 +41,7 @@ Kubernetes Fury Service Mesh provides the following packages:
 
 | Kubernetes Version |   Compatibility    | Notes           |
 | ------------------ | :----------------: | --------------- |
-| `1.27,x`           | :white_check_mark: | No known issues |
+| `1.27.x`           | :white_check_mark: | No known issues |
 | `1.28.x`           | :white_check_mark: | No known issues |
 | `1.29.x`           | :white_check_mark: | No known issues |
 | `1.30.x`           | :white_check_mark: | No known issues |
@@ -50,10 +54,10 @@ Check the [compatibility matrix][compatibility-matrix] for additional informatio
 
 | Tool                                    | Version    | Description                                                                                                                                                    |
 | --------------------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [furyctl][furyctl-repo]                 | `>=0.6.0`  | The recommended tool to download and manage KFD modules and their packages. To learn more about `furyctl` read the [official documentation][furyctl-repo].     |
+| [furyctl][furyctl-repo]                 | `>=0.6.0`  | The recommended tool to download and manage SD modules and their packages. To learn more about `furyctl` read the [official documentation][furyctl-repo].     |
 | [kustomize][kustomize-repo]             | `>=3.9.1`  | Packages are customized using `kustomize`. To learn how to create your customization layer with `kustomize`, please refer to the [repository][kustomize-repo]. |
-| [KFD Monitoring Module][kfd-monitoring] | `>=1.11.1` | To have functioning metrics, dashboards and alerts. Prometheus Operator is also required by Kiali.                                                             |
-| [KFD Logging Module][kfd-logging]       | `>=1.7.1`  | When using tracing, ElasticSearch / OpenSearch is used as storage.                                                                                             |
+| [SD Monitoring Module][kfd-monitoring] | `>=1.11.1` | To have functioning metrics, dashboards and alerts. Prometheus Operator is also required by Kiali.                                                             |
+| [SD Logging Module][kfd-logging]       | `>=1.7.1`  | When using tracing, ElasticSearch / OpenSearch is used as storage.                                                                                             |
 
 ### Istio deployment
 
@@ -129,16 +133,16 @@ The following set of alerts is included:
 | Ingress200RateLow                  | ingress gateway 200 rate drops                                                                                                                      | The expected rate is 100 per ns, the limit is set based on 15ns                                 |
 
 <!-- links -->
-[kfd-repo]: https://github.com/sighupio/fury-distribution
+[kfd-repo]: https://github.com/sighupio/distribution
 [istio-docs-site]: https://istio.io/latest/about/service-mesh/
 [furyctl-repo]: https://github.com/sighupio/furyctl
 [kustomize-repo]: https://github.com/kubernetes-sigs/kustomize
-[kfd-docs]: https://docs.kubernetesfury.com/docs/distribution/
-[compatibility-matrix]: https://github.com/sighupio/fury-kubernetes-service-mesh/blob/master/docs/COMPATIBILITY_MATRIX.md
+[sd-docs]: https://docs.kubernetesfury.com/docs/distribution/
+[compatibility-matrix]: https://github.com/sighupio/add-on-istio/blob/master/docs/COMPATIBILITY_MATRIX.md
 
 [kfd-monitoring]: https://github.com/sighupio/fury-kubernetes-monitoring
 [kfd-logging]: https://github.com/sighupio/fury-kubernetes-logging
-<!-- </KFD-DOCS> -->
+<!-- </SD-DOCS> -->
 
 <!-- <FOOTER> -->
 ## Contributing
@@ -147,7 +151,7 @@ Before contributing, please read first the [Contributing Guidelines](docs/CONTRI
 
 ### Reporting Issues
 
-In case you experience any problems with the module, please [open a new issue](https://github.com/sighupio/fury-kubernetes-service-mesh/issues/new/choose).
+In case you experience any problems with the module, please [open a new issue](https://github.com/sighupio/add-on-istio/issues/new/choose).
 
 ## License
 
