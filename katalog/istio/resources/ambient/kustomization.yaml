@@ -1,0 +1,35 @@
+
+# built by ./refresh.sh
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ./rolebinding-istiod.yaml
+- ./clusterrole-istiod-clusterrole-istio-system.yaml
+- ./clusterrole-istio-cni-ambient.yaml
+- ./validatingwebhookconfiguration-istio-validator-istio-system.yaml
+- ./serviceaccount-ztunnel.yaml
+- ./deployment-istiod.yaml
+- ./serviceaccount-istio-reader-service-account.yaml
+- ./role-istiod.yaml
+- ./configmap-istio-cni-config.yaml
+- ./clusterrolebinding-istiod-clusterrole-istio-system.yaml
+- ./serviceaccount-istiod.yaml
+- ./service-istiod.yaml
+- ./clusterrolebinding-istio-cni-repair-rolebinding.yaml
+- ./mutatingwebhookconfiguration-istio-sidecar-injector.yaml
+- ./serviceaccount-istio-cni.yaml
+- ./clusterrolebinding-istio-reader-clusterrole-istio-system.yaml
+- ./clusterrolebinding-istio-cni.yaml
+- ./daemonset-ztunnel.yaml
+- ./poddisruptionbudget-istiod.yaml
+- ./clusterrole-istio-cni-repair-role.yaml
+- ./clusterrole-istio-reader-clusterrole-istio-system.yaml
+- ./clusterrolebinding-istio-cni-ambient.yaml
+- ./configmap-istio-sidecar-injector.yaml
+- ./daemonset-istio-cni-node.yaml
+- ./configmap-istio.yaml
+- ./clusterrolebinding-istiod-gateway-controller-istio-system.yaml
+- ./clusterrole-istio-cni.yaml
+- ./clusterrole-istiod-gateway-controller-istio-system.yaml
+- ./horizontalpodautoscaler-istiod.yaml
