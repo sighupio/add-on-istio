@@ -30,9 +30,18 @@ profiles/
    │   └─ patches/
    │       └─ patch-enable-core-dump.yaml
    ├─ telemetry-legacy/
-   │   ├─ kustomization.yaml
-   │   └─ patches/
-   │       └─ patch-disable-telemetry-v2.yaml
+   │   ├─ telemetry-legacy/
+   │   │    ├─ kustomization.yaml
+   │   │    └─ patches/
+   │   │       └─ patch-disable-telemetry-v2.yaml
+   │   ├─ tempo/
+   │   │    ├─ kustomization.yaml
+   │   │    └─ resource/
+   │   │       └─ tempo-telemetry.yaml
+   │   └─ jaeger/
+   │   │    ├─ kustomization.yaml
+   │   │    └─ resource/
+   │   │       └─ jaeger-telemetry.yaml
    ├─ wasm-filter/
    │   ├─ kustomization.yaml
    │   └─ patches/
