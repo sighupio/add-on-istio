@@ -1,0 +1,31 @@
+
+# built by ./refresh.sh
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ./service-istio-ingressgateway.yaml
+- ./rolebinding-istiod.yaml
+- ./clusterrole-istiod-clusterrole-istio-system.yaml
+- ./rolebinding-istio-ingressgateway-sds.yaml
+- ./poddisruptionbudget-istio-ingressgateway.yaml
+- ./validatingwebhookconfiguration-istio-validator-istio-system.yaml
+- ./deployment-istiod.yaml
+- ./role-istio-ingressgateway-sds.yaml
+- ./serviceaccount-istio-reader-service-account.yaml
+- ./role-istiod.yaml
+- ./deployment-istio-ingressgateway.yaml
+- ./clusterrolebinding-istiod-clusterrole-istio-system.yaml
+- ./serviceaccount-istiod.yaml
+- ./service-istiod.yaml
+- ./mutatingwebhookconfiguration-istio-sidecar-injector.yaml
+- ./clusterrolebinding-istio-reader-clusterrole-istio-system.yaml
+- ./poddisruptionbudget-istiod.yaml
+- ./clusterrole-istio-reader-clusterrole-istio-system.yaml
+- ./configmap-istio-sidecar-injector.yaml
+- ./configmap-istio.yaml
+- ./horizontalpodautoscaler-istio-ingressgateway.yaml
+- ./serviceaccount-istio-ingressgateway-service-account.yaml
+- ./clusterrolebinding-istiod-gateway-controller-istio-system.yaml
+- ./clusterrole-istiod-gateway-controller-istio-system.yaml
+- ./horizontalpodautoscaler-istiod.yaml
