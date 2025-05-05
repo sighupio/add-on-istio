@@ -1,0 +1,24 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  labels:
+    app: istio-egressgateway
+    app.kubernetes.io/instance: istio
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: istio-egressgateway
+    app.kubernetes.io/part-of: istio
+    app.kubernetes.io/version: 1.25.2
+    helm.sh/chart: istio-egress-1.25.2
+    install.operator.istio.io/owning-resource: unknown
+    istio: egressgateway
+    istio.io/rev: default
+    operator.istio.io/component: EgressGateways
+    release: istio
+  name: istio-egressgateway
+  namespace: istio-system
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: istio-egressgateway
+      istio: egressgateway

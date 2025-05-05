@@ -1,0 +1,12 @@
+
+# built by ./refresh.sh
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ./role-istio-egressgateway-sds.yaml
+- ./rolebinding-istio-egressgateway-sds.yaml
+- ./serviceaccount-istio-egressgateway-service-account.yaml
+- ./deployment-istio-egressgateway.yaml
+- ./service-istio-egressgateway.yaml
+- ./poddisruptionbudget-istio-egressgateway.yaml
