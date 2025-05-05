@@ -1,0 +1,34 @@
+# Copyright (c) 2017-present SIGHUP s.r.l All rights reserved.
+# Use of this source code is governed by a BSD-style
+# license that can be found in the LICENSE file.
+
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: observability
+resources:
+  - resources/validatingwebhookconfiguration-jaeger-operator-validating-webhook-configuration.yaml
+  - resources/service-jaeger-operator-webhook-service.yaml
+  - resources/service-jaeger-operator-metrics.yaml
+  - resources/serviceaccount-jaeger-operator.yaml
+  - resources/role-prometheus.yaml
+  - resources/role-leader-election-role.yaml
+  - resources/rolebinding-prometheus.yaml
+  - resources/rolebinding-leader-election-rolebinding.yaml
+  - resources/mutatingwebhookconfiguration-jaeger-operator-mutating-webhook-configuration.yaml
+  - resources/issuer-jaeger-operator-selfsigned-issuer.yaml
+  - resources/deployment-jaeger-operator.yaml
+  - resources/customresourcedefinition-jaegers.jaegertracing.io.yaml
+  - resources/clusterrole-proxy-role.yaml
+  - resources/clusterrole-manager-role.yaml
+  - resources/clusterrole-jaeger-operator-metrics-reader.yaml
+  - resources/clusterrolebinding-manager-rolebinding.yaml
+  - resources/clusterrolebinding-jaeger-operator-proxy-rolebinding.yaml
+  - resources/certificate-jaeger-operator-serving-cert.yaml
+  - resources/namespace-observability.yaml
+
+
+images:
+  - name: quay.io/jaegertracing/jaeger-operator
+    newName: registry.sighup.io/fury/jaegertracing/jaeger-operator
+    newTag: 1.62.0
