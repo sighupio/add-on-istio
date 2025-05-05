@@ -15,3 +15,4 @@ resources:
 patchesStrategicMerge:
   - patches/ingressgateway-svc.yaml
   - patches/ingressgateway-hpa.yaml
+  # - patches/resource-tuning.yaml

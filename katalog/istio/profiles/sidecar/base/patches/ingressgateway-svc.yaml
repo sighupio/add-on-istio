@@ -2,13 +2,16 @@
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 ---
-
+apiVersion: v1
 kind: Service
 metadata:
   name: istio-ingressgateway
   namespace: istio-system
 spec:
   type: NodePort
+  selector:
+    app: istio-ingressgateway
+    istio: ingressgateway
   ports:
     - name: status-port
       port: 15021
