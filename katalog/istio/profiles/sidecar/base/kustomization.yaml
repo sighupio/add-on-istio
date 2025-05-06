@@ -9,6 +9,7 @@ kind: Kustomization
 
 resources:
   - resources/ns.yaml
+  - resources/components-istio.yaml
   - ../../../resources/crd
   - ../../../resources/crd-gatewayapi
   - ../../../resources/default

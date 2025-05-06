@@ -11,7 +11,11 @@ spec:
   tracing:
   - providers:
     - name: jaeger
-      zipkin: 
-        adress: jaeger-collector.observability.svc.cluster.local:9411
+    randomSamplingPercentage: 100
+  # tracing:
+  # - providers:
+  #   - name: zipkin
+  #     zipkin: 
+  #       adress: jaeger-collector.observability.svc.cluster.local:9411
         # insecure: true
     # randomSamplingPercentage: 100
