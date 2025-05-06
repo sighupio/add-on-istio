@@ -8,6 +8,7 @@ kind: Kustomization
 
 
 resources:
+  - resources/ns.yaml
   - ../../../resources/crd
   - ../../../resources/crd-gatewayapi
   - ../../../resources/default

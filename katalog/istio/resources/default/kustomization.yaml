@@ -29,3 +29,13 @@ resources:
 - ./clusterrolebinding-istiod-gateway-controller-istio-system.yaml
 - ./clusterrole-istiod-gateway-controller-istio-system.yaml
 - ./horizontalpodautoscaler-istiod.yaml
+
+
+
+images:
+  - name: docker.io/istio/proxyv2
+    newName: registry.sighup.io/fury/istio/proxyv2
+    newTag: 1.25.2
+  - name: docker.io/istio/pilot
+    newName: registry.sighup.io/fury/istio/pilot
+    newTag: 1.25.2
