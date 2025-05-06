@@ -9,6 +9,8 @@ namespace: istio-system
 generatorOptions:
   labels:
     grafana-sighup-dashboard: default
+  annotations:
+    grafana-folder: "Istio Ambient"
   disableNameSuffixHash: true
 
 configMapGenerator:
