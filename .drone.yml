@@ -2,13 +2,6 @@
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
-# Pipelines order:
-# 1. license
-# 2. policeman
-# 4. istio-1.32
-# 5. istio-1.29
-# 5. istio-1.30
-# 6. release
 
 name: license
 kind: pipeline
