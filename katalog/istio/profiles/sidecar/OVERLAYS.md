@@ -1,7 +1,7 @@
 # Overlay Profile Structure
 
 
-```
+```text
 profiles/
 └─ sidecar/
    ├─ base/

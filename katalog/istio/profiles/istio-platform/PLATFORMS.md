@@ -3,7 +3,7 @@
 In this package we collect all resources we need for advanced Istio Setups
 
 
-```
+```text
 istio-platforms/
    ├─ strict-mtls/
    │   ├─ kustomization.yaml

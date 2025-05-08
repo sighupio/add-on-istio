@@ -1,4 +1,4 @@
-# Telemetry Patch Overlay(WIP) 
+# Telemetry Patch Overlay(WIP)
 
 ## Jaeger Tracing
 WIP

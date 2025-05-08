@@ -5,7 +5,7 @@ Follow these steps to download the correct version of an Istio dashboard and upd
 
 ## 1. Download the Dashboard
 
-Open your browser and navigate to:https://grafana.com/orgs/istio/dashboards
+Open your browser and navigate to: [Istio Dashboards on Grafana.com](https://grafana.com/orgs/istio/dashboards)
 
 Find the dashboard version you need.
 
@@ -18,12 +18,12 @@ Save the file as dashboard_name.json.
 Open dashboard_name.json in a text editor (e.g., VS Code, vim).
 
 Locate every panel's datasource section. Look for or add:
-```
+```json
 "datasource": {
   "type": "prometheus",
   "uid": "${datasource}"
 }
-```
+
 
 If the block exists but differs, replace it entirely with the snippet above.
 
