@@ -55,7 +55,7 @@ steps:
       - clone
 
   - name: render
-    image: quay.io/sighup/e2e-testing:1.1.0_0.11.0_3.12.0_1.9.4_1.31.1_3.5.3_4.33.3
+    image: quay.io/sighup/e2e-testing:2.24.17_1.1.0_3.12.0_1.32.2_5.6.0_4.33.3
     pull: always
     depends_on:
       - clone
