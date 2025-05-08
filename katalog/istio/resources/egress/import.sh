@@ -1,10 +1,11 @@
+#!/bin/bash -e
 # Copyright (c) 2017-present SIGHUP s.r.l All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
 shellcheck disable=SC1128,SC2068
 
-#!/bin/bash -e
+
 # refresh.sh
 # Create a kustomization.yaml and then add all kubernetes YAMLs into resources...
 echo -n "
