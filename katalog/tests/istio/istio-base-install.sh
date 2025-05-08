@@ -22,13 +22,16 @@ load ./../helper
   test(){
     retry_counter=0
     max_retry=50
-    while [ "$(kubectl get istiooperator -n istio-system istio -o jsonpath='{.status.status}')" != "HEALTHY" ]
-    do
-      describe_output=$(kubectl get istiooperator -n istio-system istio -o json)
-      echo -n " current status is :$(kubectl get istiooperator -n istio-system istio -o jsonpath='{.status.status}'), expected is : HEALTHY" >&3
-      echo -n " Istio Operator resource is: $describe_output" >&3
-      [ $retry_counter -lt $max_retry ] || ( kubectl describe all -n istio-system >&2 && return 1 )
-      sleep 20 && echo "# waiting..." $retry_counter >&3
+    while true; do
+      not_ready=$(kubectl get pods -n istio-system --no-headers | grep -v '1/1 *Running' || true)
+      if [ -z "$not_ready" ]; then
+        break
+      fi
+      echo -n "Pods not ready in istio-system namespace:" >&3
+      echo "$not_ready" >&3
+
+      [ $retry_counter -lt $max_retry ] || (kubectl describe all -n istio-system >&2 && return 1)
+      sleep 10 && echo "# waiting..." $retry_counter >&3
       retry_counter=$(( retry_counter + 1 ))
     done
   }
