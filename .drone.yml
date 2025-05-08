@@ -175,7 +175,7 @@ steps:
       - name: dockersock
         path: /var/run/docker.sock
     pull: always
-    depends_on: [e2e-istio-with-citadel]
+    depends_on: [e2e-egress-gateway]
     environment:
       CLUSTER_NAME: ${DRONE_REPO_NAME}-${DRONE_BUILD_NUMBER}-1.29.0
     commands:
@@ -307,7 +307,7 @@ steps:
       - name: dockersock
         path: /var/run/docker.sock
     pull: always
-    depends_on: [e2e-istio-with-citadel]
+    depends_on: [e2e-egress-gateway]
     environment:
       CLUSTER_NAME: ${DRONE_REPO_NAME}-${DRONE_BUILD_NUMBER}-1.30.4
     commands:
@@ -435,7 +435,7 @@ steps:
       - name: dockersock
         path: /var/run/docker.sock
     pull: always
-    depends_on: [e2e-istio-with-citadel]
+    depends_on: [e2e-egress-gateway]
     environment:
       CLUSTER_NAME: ${DRONE_REPO_NAME}-${DRONE_BUILD_NUMBER}-1.31.0
     commands:
@@ -563,7 +563,7 @@ steps:
       - name: dockersock
         path: /var/run/docker.sock
     pull: always
-    depends_on: [e2e-istio-with-citadel]
+    depends_on: [e2e-egress-gateway]
     environment:
       CLUSTER_NAME: ${DRONE_REPO_NAME}-${DRONE_BUILD_NUMBER}-1.32.2
     commands:
