@@ -9,7 +9,7 @@
 </h1>
 <!-- markdownlint-enable MD033 -->
 
-![Release](https://img.shields.io/badge/Latest%20Release-v3.1.0-blue)
+![Release](https://img.shields.io/badge/Latest%20Release-v4.0.0-blue)
 ![License](https://img.shields.io/github/license/sighupio/add-on-istio?label=License)
 ![Slack](https://img.shields.io/badge/slack-@kubernetes/fury-yellow.svg?logo=slack&label=Slack)
 
@@ -35,16 +35,16 @@ Kubernetes Fury Service Mesh provides the following packages:
 
 | Package                                  | Version   | Description                                                                                                                                                               |
 | ---------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Istio Operator](katalog/istio-operator) | `v1.23.3` | Istio Service Mesh Operator package. Including the Istio Operator itself, the Jeager Operator, and Kiali. Includes 3 different profiles: `minimal`, `tracing` and `full`. |
+| [Istio](katalog/istio) | `v1.25.2` | Istio package. Including Istio, the Jaeger Operator, and Kiali. Includes 2 different profiles: `sidecar` and `istio-platform`.                                                |
 
 ## Compatibility
 
 | Kubernetes Version |   Compatibility    | Notes           |
 | ------------------ | :----------------: | --------------- |
-| `1.27.x`           | :white_check_mark: | No known issues |
-| `1.28.x`           | :white_check_mark: | No known issues |
 | `1.29.x`           | :white_check_mark: | No known issues |
 | `1.30.x`           | :white_check_mark: | No known issues |
+| `1.31.x`           | :white_check_mark: | No known issues |
+| `1.32.x`           | :white_check_mark: | No known issues |
 
 Check the [compatibility matrix][compatibility-matrix] for additional information about previous releases of the modules.
 
@@ -65,8 +65,8 @@ Check the [compatibility matrix][compatibility-matrix] for additional informatio
 
 ```yaml
 bases:
-    - name: istio/istio-operator
-      version: v3.2.0
+    - name: istio
+      version: v4.0.0
 ```
 
 > See `furyctl` [documentation][furyctl-repo] for additional details about `Furyfile.yml` format.
@@ -83,10 +83,10 @@ furyctl vendor -H
 
 ```yaml
 resources:
-    - ./vendor/katalog/istio/istio-operator/profiles/minimal
+    - ./vendor/katalog/istio/profiles/sidecar/base
 ```
 
-> You can point to one of the predefined profiles (`minimal`, `tracing` or `full`) here.
+> You can point to one of the predefined profiles here.
 
 5. Finally, to deploy the selected profile to your cluster, execute:
 
