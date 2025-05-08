@@ -13,8 +13,8 @@ load ./../helper
     kubectl create ns egress-tests
     kubectl create ns egress-tests-no-mesh
     kubectl label namespace egress-tests istio-injection=enabled
-    kubectl apply -f katalog/tests/istio-operator/egress/sleep.yaml -n egress-tests
-    kubectl apply -f katalog/tests/istio-operator/egress/sleep-no-mesh.yaml -n egress-tests-no-mesh
+    kubectl apply -f katalog/tests/istio/egress/sleep.yaml -n egress-tests
+    kubectl apply -f katalog/tests/istio/egress/sleep-no-mesh.yaml -n egress-tests-no-mesh
   }
   wait_pod(){
     kubectl get pods -n egress-tests | grep -ie "\(Pending\|Error\|CrashLoop\|ContainerCreating\|PodInitializing\|Init:\)"
@@ -45,7 +45,7 @@ load ./../helper
 @test "Accessing External Services - Change to the blocking-by-default policy" {
   info
   setup_environment(){
-    apply katalog/tests/istio-operator/enable-egress-registry-only
+    apply katalog/tests/istio/enable-egress-registry-only
   }
   run setup_environment
   [ "$status" -eq 0 ]
@@ -66,7 +66,7 @@ load ./../helper
 @test "Accessing External Services - REGISTRY_ONLY - Access an external HTTP service" {
   info
   test(){
-    kubectl apply -f katalog/tests/istio-operator/egress/httpbin-ext.yaml -n egress-tests
+    kubectl apply -f katalog/tests/istio/egress/httpbin-ext.yaml -n egress-tests
     pod_name=$(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name} -n egress-tests)
     http_code=$(kubectl exec ${pod_name} -c sleep -n egress-tests -- curl "http://httpbin.org/headers" -s -o /dev/null -w "%{http_code}")
     if [ -z "${http_code}" ] || [ "${http_code}" -ne "200" ]; then return 1; fi
@@ -91,7 +91,7 @@ load ./../helper
 @test "Accessing External Services - REGISTRY_ONLY - Access an external HTTPS service" {
   info
   test(){
-    kubectl apply -f katalog/tests/istio-operator/egress/google-ext.yaml -n egress-tests
+    kubectl apply -f katalog/tests/istio/egress/google-ext.yaml -n egress-tests
     pod_name=$(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name} -n egress-tests)
     http_code=$(kubectl exec ${pod_name} -c sleep -n egress-tests -- curl "https://www.google.com" -s -o /dev/null -w "%{http_code}")
     if [ -z "${http_code}" ] || [ "${http_code}" -ne "200" ]; then return 1; fi
@@ -104,7 +104,7 @@ load ./../helper
 @test "Accessing External Services - REGISTRY_ONLY - Manage traffic to external services" {
   info
   test(){
-    kubectl apply -f katalog/tests/istio-operator/egress/httpbin-virtual-service-ext.yaml -n egress-tests
+    kubectl apply -f katalog/tests/istio/egress/httpbin-virtual-service-ext.yaml -n egress-tests
     pod_name=$(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name} -n egress-tests)
     http_code=$(kubectl exec ${pod_name} -c sleep -n egress-tests -- curl "http://httpbin.org/delay/5" -s -o /dev/null -w "%{http_code}")
     if [ -z "${http_code}" ] || [ "${http_code}" -ne "504" ]; then return 1; fi
@@ -118,7 +118,7 @@ load ./../helper
   # https://istio.io/docs/tasks/traffic-management/egress/egress-tls-origination/#configuring-access-to-an-external-service
   info
   test(){
-    kubectl apply -f katalog/tests/istio-operator/egress/cnn-ext.yaml -n egress-tests
+    kubectl apply -f katalog/tests/istio/egress/cnn-ext.yaml -n egress-tests
     pod_name=$(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name} -n egress-tests)
     http_code=$(kubectl exec ${pod_name} -c sleep -n egress-tests -- curl "http://edition.cnn.com/politics" -s -o /dev/null -w "%{http_code}")
     if [ -z "${http_code}" ] || [ "${http_code}" -ne "301" ]; then return 1; fi
@@ -132,7 +132,7 @@ load ./../helper
   # https://istio.io/docs/tasks/traffic-management/egress/egress-tls-origination/#configuring-access-to-an-external-service
   info
   test(){
-    kubectl apply -f katalog/tests/istio-operator/egress/cnn-origin-tls-ext.yaml -n egress-tests
+    kubectl apply -f katalog/tests/istio/egress/cnn-origin-tls-ext.yaml -n egress-tests
     pod_name=$(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name} -n egress-tests)
     http_code=$(kubectl exec ${pod_name} -c sleep -n egress-tests -- curl "http://edition.cnn.com/politics" -s -o /dev/null -w "%{http_code}")
     if [ -z "${http_code}" ] || [ "${http_code}" -ne "200" ]; then return 1; fi
@@ -145,7 +145,7 @@ load ./../helper
 @test "Kubernetes Services for Egress Traffic - Access httpbin.org via the Kubernetes service’s hostname from the source pod without Istio sidecar" {
   info
   test(){
-    kubectl apply -f katalog/tests/istio-operator/egress/httpbin-externalName.yaml -n egress-tests-no-mesh
+    kubectl apply -f katalog/tests/istio/egress/httpbin-externalName.yaml -n egress-tests-no-mesh
     pod_name=$(kubectl get pod -l app=sleep-no-mesh -o jsonpath={.items..metadata.name} -n egress-tests-no-mesh)
     istio_header=$(kubectl exec ${pod_name} -c sleep -n egress-tests-no-mesh -- curl "http://my-httpbin/headers" -s |jq '.headers["X-Istio-Attributes"]' -rc)
     headers=$(kubectl exec ${pod_name} -c sleep -n egress-tests-no-mesh -- curl "http://my-httpbin/headers" -s)
@@ -159,8 +159,8 @@ load ./../helper
 @test "Kubernetes Services for Egress Traffic - Access httpbin.org via the Kubernetes service’s hostname from the source pod with Istio sidecar." {
   info
   test(){
-    kubectl apply -f katalog/tests/istio-operator/egress/httpbin-externalName.yaml -n egress-tests
-    kubectl apply -f katalog/tests/istio-operator/egress/httpbin-externalName-destination-rule.yaml -n egress-tests
+    kubectl apply -f katalog/tests/istio/egress/httpbin-externalName.yaml -n egress-tests
+    kubectl apply -f katalog/tests/istio/egress/httpbin-externalName-destination-rule.yaml -n egress-tests
     pod_name=$(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name} -n egress-tests)
     istio_header=$(kubectl exec ${pod_name} -c sleep -n egress-tests -- curl "http://my-httpbin/headers" -s |jq '.headers["X-Envoy-Decorator-Operation"]' -rc)
     headers=$(kubectl exec ${pod_name} -c sleep -n egress-tests -- curl "http://my-httpbin/headers" -s)
@@ -174,7 +174,7 @@ load ./../helper
 @test "Rollback" {
   info
   setup_environment(){
-    apply katalog/tests/istio-operator/enable-egress-allow-any
+    apply katalog/tests/istio/enable-egress-allow-any
     kubectl delete ns egress-tests
   }
   run setup_environment

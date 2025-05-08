@@ -11,7 +11,7 @@ load ./../helper
   info
   vendor(){
     (
-      cd katalog/tests/istio-operator/requirements
+      cd katalog/tests/istio/requirements
       furyctl vendor -H
     )
   }
@@ -22,7 +22,7 @@ load ./../helper
 @test "Deploy requirements" {
   info
   req(){
-    apply katalog/tests/istio-operator/requirements
+    apply katalog/tests/istio/requirements
   }
   loop_it req 30 2
   status=${loop_it_result}

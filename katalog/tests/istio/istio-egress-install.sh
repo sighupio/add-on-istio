@@ -10,7 +10,7 @@ load ./../helper
 @test "Install istio egress-gateway (minimal) package" {
   info
   test(){
-    apply examples/istio-operator/enable-egress-gateway
+    apply examples/istio/enable-egress-gateway
   }
   run test
   [ "$status" -eq 0 ]

@@ -12,19 +12,19 @@ load ./../helper
   deploy(){
     kubectl create ns demo
     kubectl label namespace demo istio-injection=enabled
-    if [ "$(kubectl apply -f katalog/tests/istio-operator/bookinfo/bookinfo.yaml -n demo)" -ne 0 ]
+    if [ "$(kubectl apply -f katalog/tests/istio/bookinfo/bookinfo.yaml -n demo)" -ne 0 ]
     then
         return 1
     fi
-    if [ "$(kubectl apply -f katalog/tests/istio-operator/bookinfo/bookinfo-gateway.yaml -n demo)" -ne 0 ]
+    if [ "$(kubectl apply -f katalog/tests/istio/bookinfo/bookinfo-gateway.yaml -n demo)" -ne 0 ]
     then
         return 1
     fi
-    if [ "$(kubectl apply -f katalog/tests/istio-operator/bookinfo/destination-rule-all.yaml -n demo)" -ne 0 ]
+    if [ "$(kubectl apply -f katalog/tests/istio/bookinfo/destination-rule-all.yaml -n demo)" -ne 0 ]
     then
         return 1
     fi
-    if [ "$(kubectl apply -f katalog/tests/istio-operator/bookinfo/virtual-service-all-v1.yaml -n demo)" -ne 0 ]
+    if [ "$(kubectl apply -f katalog/tests/istio/bookinfo/virtual-service-all-v1.yaml -n demo)" -ne 0 ]
     then
         return 1
     fi
@@ -72,7 +72,7 @@ load ./../helper
 @test "deploy v2 for jason and v3 for the rest in bookinfo demo application" {
   info
   test(){
-    kubectl apply -f katalog/tests/istio-operator/bookinfo/virtual-service-reviews-jason-v2-v3.yaml -n demo
+    kubectl apply -f katalog/tests/istio/bookinfo/virtual-service-reviews-jason-v2-v3.yaml -n demo
   }
   run test
   [ "$status" -eq 0 ]

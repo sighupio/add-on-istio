@@ -10,7 +10,7 @@ load ./../helper
 @test "Install istio minimal profile" {
   info
   test(){
-    apply katalog/istio-operator/profiles/minimal
+    apply katalog/istio/profiles/sidecar/base
   }
   loop_it test 30 2
   status=${loop_it_result}
