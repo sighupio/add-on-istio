@@ -3,7 +3,7 @@
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
-# shellcheck disable=SC1128,SC2068
+# shellcheck disable=SC1128,SC2068,SC2086,SC1083
 
 
 set -euo pipefail
