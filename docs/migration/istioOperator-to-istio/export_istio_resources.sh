@@ -16,7 +16,7 @@ set -euo pipefail
 # -----------------------------------------------------------------
 OUTDIR="${OUTDIR:-gateway-split}"      
 GATEWAYS_YAML="${GATEWAYS_YAML:-gateways.yaml}"
-ISTIOCTL_CMD="${ISTIOCTL_CMD:-asdf exec istioctl}"
+ISTIOCTL_CMD="${ISTIOCTL_CMD:-istioctl}"
 YQ_CMD="${YQ_CMD:-yq e}"
 SLICE_CMD="${SLICE_CMD:-kubectl-slice}"
 
@@ -61,7 +61,7 @@ echo "Extract resources egress-gateway → ${OUTDIR}/egress-gateway/egress-gatew
 ${YQ_CMD} "${EGRESS_FILTER}" all-gateways.yaml \
   > "${OUTDIR}/egress-gateway/egress-gateway-resources.yaml"
 
-echo "📂  Splitting egress-gateway resources into individual files…"
+echo "Splitting egress-gateway resources into individual files…"
   ${SLICE_CMD} \
     --input-file="${OUTDIR}/egress-gateway/egress-gateway-resources.yaml" \
     --output-dir="${OUTDIR}/egress-gateway" \
