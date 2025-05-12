@@ -15,7 +15,7 @@
 
 <!-- <SD-DOCS> -->
 
-**Istio Add-On Module** add-on module for the [SIGHUP Distribution (SD)][kfd-repo] allows to transparently add Istio Mesh capabilities to your SD cluster.
+**Istio add-on module** for the [SIGHUP Distribution (SD)][kfd-repo] allows to transparently add Istio Mesh capabilities to your SD cluster.
 
 If you are new to SD please refer to the [official documentation][sd-docs] on how to get started with SD.
 
@@ -31,7 +31,7 @@ Read more on [Istio's documentation site][istio-docs-site].
 
 ## Packages
 
-Kubernetes Fury Service Mesh provides the following packages:
+Istio add-on module provides the following packages:
 
 | Package                                  | Version   | Description                                                                                                                                                               |
 | ---------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -61,7 +61,7 @@ Check the [compatibility matrix][compatibility-matrix] for additional informatio
 
 ### Istio deployment
 
-1. To start using Kubernetes Fury Service Mesh, add to your `Furyfile.yaml` the module as a base, you can also specify the single package:
+1. To start using Istio add-on module, add to your `Furyfile.yaml` the module as a base:
 
 ```yaml
 versions:
