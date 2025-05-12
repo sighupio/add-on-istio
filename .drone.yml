@@ -155,23 +155,6 @@ steps:
       - bats -t katalog/tests/istio/istio-egress-install.sh
       # - bats -t katalog/tests/istio/istio-egress-external-services.sh
 
-  # - name: e2e-istio-with-citadel
-  #   image: quay.io/sighup/e2e-testing:1.1.0_0.7.0_3.1.1_1.9.4_1.24.1_3.8.7_4.21.1
-  #   pull: always
-  #   network_mode: host
-  #   environment:
-  #     CLUSTER_NAME: ${DRONE_REPO_NAME}-${DRONE_BUILD_NUMBER}-1.29.0
-  #     KUBECONFIG: /drone/src/kubeconfig-1.29.0
-  #   depends_on: [e2e-egress-gateway]
-  #   commands:
-  #     - . ./env-$${CLUSTER_NAME}.env
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-install.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-1.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-2.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-3.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-cleanup.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-rollback.sh
-
   - name: delete-kind-cluster
     image: quay.io/sighup/dind-kind-kubectl-kustomize:0.20.0_1.29.1_3.10.0
     volumes:
@@ -291,22 +274,6 @@ steps:
       - bats -t katalog/tests/istio/istio-egress-install.sh
       # - bats -t katalog/tests/istio/istio-egress-external-services.sh
 
-  # - name: e2e-istio-with-citadel
-  #   image: quay.io/sighup/e2e-testing:1.1.0_3.12.0_1.30.5_3.10.0_4.33.3
-  #   pull: always
-  #   network_mode: host
-  #   environment:
-  #     CLUSTER_NAME: ${DRONE_REPO_NAME}-${DRONE_BUILD_NUMBER}-1.30.4
-  #     KUBECONFIG: /drone/src/kubeconfig-1.30.4
-  #   depends_on: [e2e-egress-gateway]
-  #   commands:
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-install.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-1.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-2.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-3.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-cleanup.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-rollback.sh
-
   - name: delete-kind-cluster
     image: quay.io/sighup/dind-kind-kubectl-kustomize:0.20.0_1.30.5_3.10.0
     volumes:
@@ -421,23 +388,6 @@ steps:
       - bats -t katalog/tests/istio/istio-egress-install.sh
       # - bats -t katalog/tests/istio/istio-egress-external-services.sh
 
-  # - name: e2e-istio-with-citadel
-  #   image: quay.io/sighup/e2e-testing:1.1.0_1.31.1_3.10.0_4.33.3
-  #   pull: always
-  #   network_mode: host
-  #   environment:
-  #     CLUSTER_NAME: ${DRONE_REPO_NAME}-${DRONE_BUILD_NUMBER}-1.31.0
-  #     KUBECONFIG: /drone/src/kubeconfig-1.31.0
-  #   depends_on: [e2e-egress-gateway]
-  #   commands:
-  #     - . ./env-$${CLUSTER_NAME}.env
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-install.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-1.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-2.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-3.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-cleanup.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-rollback.sh
-
   - name: delete-kind-cluster
     image: quay.io/sighup/dind-kind-kubectl-kustomize:0.24.0_1.31.1_3.10.0
     volumes:
@@ -551,23 +501,6 @@ steps:
       - . ./env-$${CLUSTER_NAME}.env
       - bats -t katalog/tests/istio/istio-egress-install.sh
       # - bats -t katalog/tests/istio/istio-egress-external-services.sh
-
-  # - name: e2e-istio-with-citadel
-  #   image: quay.io/sighup/e2e-testing:2.24.17_1.1.0_3.12.0_1.32.2_5.6.0_4.33.3
-  #   pull: always
-  #   network_mode: host
-  #   environment:
-  #     CLUSTER_NAME: ${DRONE_REPO_NAME}-${DRONE_BUILD_NUMBER}-1.32.2
-  #     KUBECONFIG: /drone/src/kubeconfig-1.32.2
-  #   depends_on: [e2e-egress-gateway]
-  #   commands:
-  #     - . ./env-$${CLUSTER_NAME}.env
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-install.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-1.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-2.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-3.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-authn-cleanup.sh
-  #     - bats -t katalog/tests/istio-operator/istio-citadel-rollback.sh
 
   - name: delete-kind-cluster
     image: quay.io/sighup/dind-kind-kubectl-kustomize:0.27.0_1.32.2_5.6.0
