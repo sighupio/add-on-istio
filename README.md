@@ -61,15 +61,17 @@ Check the [compatibility matrix][compatibility-matrix] for additional informatio
 
 ### Istio deployment
 
-1. To start using Kubernetes Fury Service Mesh, add to your `Furyfile.yml` the module as a base, you can also specify the single package:
+1. To start using Kubernetes Fury Service Mesh, add to your `Furyfile.yaml` the module as a base, you can also specify the single package:
 
 ```yaml
+versions:
+  service-mesh: v4.0.0
+
 bases:
-    - name: istio
-      version: v4.0.0
+  - name: service-mesh
 ```
 
-> See `furyctl` [documentation][furyctl-repo] for additional details about `Furyfile.yml` format.
+> See `furyctl` [documentation][furyctl-repo] for additional details about `Furyfile.yaml` format.
 
 2. Execute the following command to download the packages to your machine:
 
