@@ -118,11 +118,14 @@ steps:
     environment:
       CLUSTER_NAME: ${DRONE_REPO_NAME}-${DRONE_BUILD_NUMBER}-1.29.0
       KUBECONFIG: /drone/src/kubeconfig-1.29.0
+      FURYCTL_VERSION: v0.32.1
     depends_on: [create-kind-cluster]
     commands:
       - . ./env-$${CLUSTER_NAME}.env
       - cd katalog/tests/istio/requirements
-      - furyctl vendor -H
+      - curl -L "https://github.com/sighupio/furyctl/releases/download/$${FURYCTL_VERSION}/furyctl-$(uname -s)-amd64.tar.gz" -o /tmp/furyctl.tar.gz && tar xfz /tmp/furyctl.tar.gz -C /tmp
+      - mv /tmp/furyctl /usr/local/bin/furyctl && chmod +x /usr/local/bin/furyctl
+      - furyctl legacy vendor -H
       - cd ../../../../
       - bats -t katalog/tests/istio/istio-requirements.sh
 
@@ -251,11 +254,14 @@ steps:
     environment:
       CLUSTER_NAME: ${DRONE_REPO_NAME}-${DRONE_BUILD_NUMBER}-1.30.4
       KUBECONFIG: /drone/src/kubeconfig-1.30.4
+      FURYCTL_VERSION: v0.32.1
     depends_on: [create-kind-cluster]
     commands:
       - . ./env-$${CLUSTER_NAME}.env
       - cd katalog/tests/istio/requirements
-      - furyctl vendor -H
+      - curl -L "https://github.com/sighupio/furyctl/releases/download/$${FURYCTL_VERSION}/furyctl-$(uname -s)-amd64.tar.gz" -o /tmp/furyctl.tar.gz && tar xfz /tmp/furyctl.tar.gz -C /tmp
+      - mv /tmp/furyctl /usr/local/bin/furyctl && chmod +x /usr/local/bin/furyctl
+      - furyctl legacy vendor -H
       - cd ../../../../
       - bats -t katalog/tests/istio/istio-requirements.sh
 
