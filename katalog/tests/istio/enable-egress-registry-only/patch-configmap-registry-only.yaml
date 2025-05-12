@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: istio
+  namespace: istio-system
+data:
+  mesh: |-
+    defaultConfig:
+      discoveryAddress: istiod.istio-system.svc:15012
+    defaultProviders:
+      metrics:
+      - prometheus
+    enablePrometheusMerge: true
+    rootNamespace: istio-system
+    trustDomain: cluster.local
+    outboundTrafficPolicy:
+      mode: REGISTRY_ONLY
+    extensionProviders:
+    - name: jaeger
+      opentelemetry:
+        service: jaeger-collector.observability.svc.cluster.local
+        port: 4317

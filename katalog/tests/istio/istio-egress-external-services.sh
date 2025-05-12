@@ -17,10 +17,11 @@ load ./../helper
     kubectl apply -f katalog/tests/istio/egress/sleep-no-mesh.yaml -n egress-tests-no-mesh
   }
   wait_pod(){
-    kubectl get pods -n egress-tests | grep -ie "\(Pending\|Error\|CrashLoop\|ContainerCreating\|PodInitializing\|Init:\)"
+    ! kubectl get pods -n egress-tests | grep -qE "(Pending|Error|CrashLoop|ContainerCreating|PodInitializing|Init:)"
   }
+
   wait_pod_no_mesh(){
-    kubectl get pods -n egress-tests-no-mesh | grep -ie "\(Pending\|Error\|CrashLoop\|ContainerCreating\|PodInitializing\|Init:\)"
+    ! kubectl get pods -n egress-tests-no-mesh | grep -qE "(Pending|Error|CrashLoop|ContainerCreating|PodInitializing|Init:)"
   }
   run setup_environment
   loop_it wait_pod 30 2
