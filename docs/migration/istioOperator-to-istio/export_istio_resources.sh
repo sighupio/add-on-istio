@@ -16,7 +16,7 @@ set -euo pipefail
 # -----------------------------------------------------------------
 OUTDIR="${OUTDIR:-gateway-split}"      
 GATEWAYS_YAML="${GATEWAYS_YAML:-gateways.yaml}"
-ISTIOCTL_CMD="${ISTIOCTL_CMD:-asdf exec istioctl}"
+ISTIOCTL_CMD="${ISTIOCTL_CMD:-istioctl}"
 YQ_CMD="${YQ_CMD:-yq e}"
 
 echo "Make resource structure in ${OUTDIR}/..."
