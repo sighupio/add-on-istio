@@ -153,7 +153,7 @@ steps:
     commands:
       - . ./env-$${CLUSTER_NAME}.env
       - bats -t katalog/tests/istio/istio-egress-install.sh
-      # - bats -t katalog/tests/istio/istio-egress-external-services.sh
+      - bats -t katalog/tests/istio/istio-egress-external-services.sh
 
   - name: delete-kind-cluster
     image: quay.io/sighup/dind-kind-kubectl-kustomize:0.20.0_1.29.1_3.10.0
@@ -272,7 +272,7 @@ steps:
     commands:
       - . ./env-$${CLUSTER_NAME}.env
       - bats -t katalog/tests/istio/istio-egress-install.sh
-      # - bats -t katalog/tests/istio/istio-egress-external-services.sh
+      - bats -t katalog/tests/istio/istio-egress-external-services.sh
 
   - name: delete-kind-cluster
     image: quay.io/sighup/dind-kind-kubectl-kustomize:0.20.0_1.30.5_3.10.0
@@ -386,7 +386,7 @@ steps:
     commands:
       - . ./env-$${CLUSTER_NAME}.env
       - bats -t katalog/tests/istio/istio-egress-install.sh
-      # - bats -t katalog/tests/istio/istio-egress-external-services.sh
+      - bats -t katalog/tests/istio/istio-egress-external-services.sh
 
   - name: delete-kind-cluster
     image: quay.io/sighup/dind-kind-kubectl-kustomize:0.24.0_1.31.1_3.10.0
@@ -500,7 +500,7 @@ steps:
     commands:
       - . ./env-$${CLUSTER_NAME}.env
       - bats -t katalog/tests/istio/istio-egress-install.sh
-      # - bats -t katalog/tests/istio/istio-egress-external-services.sh
+      - bats -t katalog/tests/istio/istio-egress-external-services.sh
 
   - name: delete-kind-cluster
     image: quay.io/sighup/dind-kind-kubectl-kustomize:0.27.0_1.32.2_5.6.0
