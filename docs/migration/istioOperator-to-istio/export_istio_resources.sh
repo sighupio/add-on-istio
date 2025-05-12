@@ -16,8 +16,9 @@ set -euo pipefail
 # -----------------------------------------------------------------
 OUTDIR="${OUTDIR:-gateway-split}"      
 GATEWAYS_YAML="${GATEWAYS_YAML:-gateways.yaml}"
-ISTIOCTL_CMD="${ISTIOCTL_CMD:-istioctl}"
+ISTIOCTL_CMD="${ISTIOCTL_CMD:-asdf exec istioctl}"
 YQ_CMD="${YQ_CMD:-yq e}"
+SLICE_CMD="${SLICE_CMD:-kubectl-slice}"
 
 echo "Make resource structure in ${OUTDIR}/..."
 rm -rf "${OUTDIR}"
@@ -43,6 +44,13 @@ echo "Extract resources ingress-gateway → ${OUTDIR}/ingress-gateway/ingress-ga
 ${YQ_CMD} "${INGRESS_FILTER}" all-gateways.yaml \
   > "${OUTDIR}/ingress-gateway/ingress-gateway-resources.yaml"
 
+
+echo "Splitting ingress-gateway resources into individual files…"
+  ${SLICE_CMD} \
+    --input-file="${OUTDIR}/ingress-gateway/ingress-gateway-resources.yaml" \
+    --output-dir="${OUTDIR}/ingress-gateway" \
+    --prune
+
 # label app.kubernetes.io/name or operator.istio.io/component
 EGRESS_FILTER='select(
   (.metadata.labels["app.kubernetes.io/name"] == "istio-egressgateway") or
@@ -52,6 +60,12 @@ EGRESS_FILTER='select(
 echo "Extract resources egress-gateway → ${OUTDIR}/egress-gateway/egress-gateway-resources.yaml"
 ${YQ_CMD} "${EGRESS_FILTER}" all-gateways.yaml \
   > "${OUTDIR}/egress-gateway/egress-gateway-resources.yaml"
+
+echo "📂  Splitting egress-gateway resources into individual files…"
+  ${SLICE_CMD} \
+    --input-file="${OUTDIR}/egress-gateway/egress-gateway-resources.yaml" \
+    --output-dir="${OUTDIR}/egress-gateway" \
+    --prune
 
 rm all-gateways.yaml
 
