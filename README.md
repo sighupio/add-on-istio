@@ -21,7 +21,7 @@ If you are new to SD please refer to the [official documentation][sd-docs] on ho
 
 ## Overview
 
-**Istio Add-On Module** add-on module deploys Istio service mesh into a Kubernetes cluster. A service mesh, such as Istio, allows to transparently add capabilities like observability, traffic management, and security to applications, without modifying their source code. These capabilities are of great value when running microservices at scale or under strict security requirements.
+**Istio add-on module** deploys Istio service mesh into a Kubernetes cluster. A service mesh, such as Istio, allows to transparently add capabilities like observability, traffic management, and security to applications, without modifying their source code. These capabilities are of great value when running microservices at scale or under strict security requirements.
 
 ### Istio
 
