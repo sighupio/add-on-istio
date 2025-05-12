@@ -1,4 +1,4 @@
-```
+```text
 gateway-split/
 ├── configmap/
 │   └── istio.yaml                   # data.mesh + meshConfig
