@@ -139,6 +139,11 @@ patches:
   - path: gateway-split/ingress-gateway/deployment-istio-ingressgateway.yaml
   - path: gateway-split/ingress-gateway/service-istio-ingressgateway.yaml
   - path: gateway-split/configmap/istio.yaml
+
+images:
+  - name: docker.io/istio/proxyv2
+    newName: registry.sighup.io/fury/istio/proxyv2
+    newTag: 1.25.2
 ```
 
 ## Troubleshooting
