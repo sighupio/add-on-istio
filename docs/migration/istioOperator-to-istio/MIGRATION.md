@@ -12,7 +12,6 @@ Make sure you have these tools in path
 | [yq][yq-repo]                           | `v4.45.1`  |
 | [kube-slice][kube-slice-repo]           | `v1.4.2`   |
 
-
 ### Step 1: extract current resources
 
 - Place the script `docs/migration/istioOperator-to-istio/export_istio_resources.sh` in your installation directory
@@ -36,9 +35,10 @@ gateway-split/
 ```
 
 ### Step 2: set up kustomize configuration
-Once we have extracted the resources, it is up to us to implement them in our plugin root in the way we prefer, split down into sub-modules with their kustomize file. 
-> Note:  Due to the strategy of the vendoring, the istio config and default ingressgateway and its resources must be patched
 
+Once we have extracted the resources, it is up to us to implement them in our plugin root in the way we prefer, split down into sub-modules with their kustomize file.
+> Note:  Due to the strategy of the vendoring, the istio config and default ingressgateway and its resources must be patched
+>
 > - If a component exists in the base profile, use patches
 > - If it doesn't, add it as a resource
 When you have updated your `kustomization.yaml`, you must have a similar patching like the example in the following:
@@ -68,7 +68,6 @@ patches:
   - path: gateway-split/ingress-gateway/service-istio-ingressgateway.yaml
   - path: gateway-split/configmap/istio.yaml
 ```
-
 
 ### Step 3: analyze the differences against your environment
 
