@@ -80,7 +80,7 @@ trigger:
     include:
       - refs/heads/master
       - refs/tags/**
-      - refs/heads/hotfix-*
+      
 
 steps:
 
@@ -195,7 +195,6 @@ trigger:
     include:
       - refs/heads/master
       - refs/tags/**
-      - refs/heads/hotfix-*
 
 steps:
 
@@ -313,7 +312,7 @@ trigger:
     include:
       - refs/heads/master
       - refs/tags/**
-      - refs/heads/hotfix-*
+      
 
 steps:
 
@@ -427,7 +426,7 @@ trigger:
     include:
       - refs/heads/master
       - refs/tags/**
-      - refs/heads/hotfix-*
+      
 
 steps:
 
