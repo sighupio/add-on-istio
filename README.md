@@ -35,7 +35,9 @@ Istio add-on module provides the following packages:
 
 | Package                                  | Version   | Description                                                                                                                                                               |
 | ---------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Istio](katalog/istio) | `v1.25.2` | Istio package. Including Istio, the Jaeger Operator, and Kiali. Includes 2 different profiles: `sidecar` and `istio-platform`.                                                |
+| [Istio](katalog/istio) | `v1.25.2` | Istio package, includes 2 different profiles: `sidecar` and `istio-platform`. |
+| [Jaeger](katalog/jaeger) | `v1.65.0` | Jaeger package, including Jager, the Jaeger Operator |
+| [Kiali](katalog/kiali) | `v2.9.0` | Kiali package.                                                       |
 
 ## Compatibility
 
