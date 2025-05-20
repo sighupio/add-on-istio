@@ -11,6 +11,7 @@ load ./../helper
   info
   test(){
     apply katalog/istio/profiles/sidecar/base
+    apply katalog/istio/profiles/istio-platform/ingress
   }
   loop_it test 30 2
   status=${loop_it_result}
