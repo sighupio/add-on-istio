@@ -248,7 +248,7 @@ steps:
       - bats -t katalog/tests/istio/istio-requirements.sh
 
   - name: e2e-basic-istio
-    image: quay.io/sighup/e2e-testing:1.1.0_3.12.0_1.30.5_3.10.0_4.33.3
+    image: quay.io/sighup/e2e-testing:2.24.17_1.1.0_3.12.0_1.30.5_5.6.0_4.33.3
     pull: always
     network_mode: host
     environment:
@@ -261,7 +261,7 @@ steps:
       - bats -t katalog/tests/istio/istio-base.sh
 
   - name: e2e-egress-gateway
-    image: quay.io/sighup/e2e-testing:1.1.0_3.12.0_1.30.5_3.10.0_4.33.3
+    image: quay.io/sighup/e2e-testing:2.24.17_1.1.0_3.12.0_1.30.5_5.6.0_4.33.3
     pull: always
     network_mode: host
     environment:
@@ -344,7 +344,7 @@ steps:
       - kind get kubeconfig --name $${CLUSTER_NAME} > $${KUBECONFIG}
 
   - name: e2e-requirements
-    image: quay.io/sighup/e2e-testing:1.1.0_1.31.1_3.10.0_4.33.3
+    image: quay.io/sighup/e2e-testing:2.24.17_1.1.0_3.12.0_1.31.1_5.6.0_4.33.3
     pull: always
     network_mode: host
     environment:
@@ -362,7 +362,7 @@ steps:
       - bats -t katalog/tests/istio/istio-requirements.sh
 
   - name: e2e-basic-istio
-    image: quay.io/sighup/e2e-testing:1.1.0_1.31.1_3.10.0_4.33.3
+    image: quay.io/sighup/e2e-testing:2.24.17_1.1.0_3.12.0_1.31.1_5.6.0_4.33.3
     pull: always
     network_mode: host
     environment:
@@ -375,7 +375,7 @@ steps:
       - bats -t katalog/tests/istio/istio-base.sh
 
   - name: e2e-egress-gateway
-    image: quay.io/sighup/e2e-testing:1.1.0_1.31.1_3.10.0_4.33.3
+    image: quay.io/sighup/e2e-testing:2.24.17_1.1.0_3.12.0_1.31.1_5.6.0_4.33.3
     pull: always
     network_mode: host
     environment:
