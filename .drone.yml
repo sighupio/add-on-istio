@@ -91,7 +91,7 @@ steps:
       - sh ./katalog/tests/istio/generate-template.sh v1.29.0
 
   - name: create-kind-cluster
-    image: quay.io/sighup/dind-kind-kubectl-kustomize:0.20.0_1.29.1_3.10.0
+    image: quay.io/sighup/dind-kind-kubectl-kustomize:0.27.0_1.29.1_5.6.0
     pull: always
     volumes:
       - name: dockersock
@@ -156,7 +156,7 @@ steps:
       - bats -t katalog/tests/istio/istio-egress-external-services.sh
 
   - name: delete-kind-cluster
-    image: quay.io/sighup/dind-kind-kubectl-kustomize:0.20.0_1.29.1_3.10.0
+    image: quay.io/sighup/dind-kind-kubectl-kustomize:0.27.0_1.29.1_5.6.0
     volumes:
       - name: dockersock
         path: /var/run/docker.sock
@@ -205,7 +205,7 @@ steps:
       - sh ./katalog/tests/istio/generate-template.sh 1.30.4
 
   - name: create-kind-cluster
-    image: quay.io/sighup/dind-kind-kubectl-kustomize:0.20.0_1.30.5_3.10.0
+    image: quay.io/sighup/dind-kind-kubectl-kustomize:0.27.0_1.30.5_5.6.0
     pull: always
     volumes:
       - name: dockersock
@@ -274,7 +274,7 @@ steps:
       - bats -t katalog/tests/istio/istio-egress-external-services.sh
 
   - name: delete-kind-cluster
-    image: quay.io/sighup/dind-kind-kubectl-kustomize:0.20.0_1.30.5_3.10.0
+    image: quay.io/sighup/dind-kind-kubectl-kustomize:0.27.0_1.30.5_5.6.0
     volumes:
       - name: dockersock
         path: /var/run/docker.sock
@@ -388,7 +388,7 @@ steps:
       - bats -t katalog/tests/istio/istio-egress-external-services.sh
 
   - name: delete-kind-cluster
-    image: quay.io/sighup/dind-kind-kubectl-kustomize:0.24.0_1.31.1_3.10.0
+    image: quay.io/sighup/dind-kind-kubectl-kustomize:0.27.0_1.31.1_5.6.0
     volumes:
       - name: dockersock
         path: /var/run/docker.sock
