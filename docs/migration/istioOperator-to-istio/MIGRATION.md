@@ -1,6 +1,6 @@
 # Migration procedure from IstioOperator to Istio manifest installation
 
-> ⚠️ If you're migrating from a previous IstioOperator installation, use our migration script to extract your current configurations:
+If you're migrating from a previous IstioOperator installation, use our migration script to extract your current configurations:
 
 ## Prerequisites
 
