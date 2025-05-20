@@ -22,7 +22,7 @@ Make sure you have these tools in path
 bash export_istio_resources.sh
 ```
 
-This will generate the following strcture:
+This will generate the following structure:
 
 ```bash
 gateway-split/
