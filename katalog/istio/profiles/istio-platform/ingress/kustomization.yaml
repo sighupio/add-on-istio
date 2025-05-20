@@ -8,11 +8,9 @@ kind: Kustomization
 
 
 resources:
-  - resources/ns.yaml
-  - resources/metrics-istio-components.yaml
-  - ../../../resources/crd
-  - ../../../resources/crd-gatewayapi
-  - ../../../resources/default
+  - ../../../resources/ingress
 
-# patchesStrategicMerge:
+patchesStrategicMerge:
+  - patches/ingressgateway-svc.yaml
+  - patches/ingressgateway-hpa.yaml
   # - patches/resource-tuning.yaml

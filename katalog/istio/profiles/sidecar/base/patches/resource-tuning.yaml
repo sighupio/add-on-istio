@@ -20,21 +20,21 @@ spec:
             limits:
               cpu: "500m"
               memory: "512Mi"
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: istio-ingressgateway
-  namespace: istio-system
-spec:
-  template:
-    spec:
-      containers:
-      - name: istio-proxy
-        resources:
-          requests:
-            cpu: "200m"
-            memory: "256Mi"
-          limits:
-            cpu: "1"
-            memory: "1Gi"
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: istio-ingressgateway
+#   namespace: istio-system
+# spec:
+#   template:
+#     spec:
+#       containers:
+#       - name: istio-proxy
+#         resources:
+#           requests:
+#             cpu: "200m"
+#             memory: "256Mi"
+#           limits:
+#             cpu: "1"
+#             memory: "1Gi"

@@ -48,6 +48,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../vendor/katalog/service-mesh/istio/profiles/sidecar/base
+  - ../vendor/katalog/service-mesh/istio/profiles/istio-platform/ingress
   - ../vendor/katalog/service-mesh/kiali
 
   # Components not included in the base profile
@@ -121,6 +122,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../vendor/katalog/service-mesh/istio/profiles/sidecar/base
+  - ../vendor/katalog/service-mesh/istio/profiles/istio-platform/ingress
   - ../vendor/katalog/service-mesh/kiali
 
   # Egress gateway resources
