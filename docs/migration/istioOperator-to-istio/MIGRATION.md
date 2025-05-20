@@ -42,7 +42,7 @@ Once we have extracted the resources, it is up to us to implement them in our pl
 >
 > - If a component exists in the base profile, use patches
 > - If it doesn't, add it as a resource
-When you have updated your `kustomization.yaml`, you must have a similar patching like the example in the following:
+When you have updated your `kustomization.yaml`, you must have a similar patching like the following example:
 
 ```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
