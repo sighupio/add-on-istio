@@ -37,7 +37,8 @@ gateway-split/
 ### Step 2: set up kustomize configuration
 
 Once we have extracted the resources, it is up to us to implement them in our plugin root in the way we prefer, split down into sub-modules with their kustomize file.
-> Note:  Due to the strategy of the vendoring, the istio config and default ingressgateway and its resources must be patched
+
+> Note: Due to the strategy of the vendoring, the istio config and default ingressgateway and its resources must be patched
 >
 > - If a component exists in the base profile, use patches
 > - If it doesn't, add it as a resource
