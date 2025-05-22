@@ -1,0 +1,37 @@
+# Copyright (c) 2017-present SIGHUP s.r.l All rights reserved.
+# Use of this source code is governed by a BSD-style
+# license that can be found in the LICENSE file.
+
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ./rolebinding-istiod.yaml
+- ./clusterrole-istiod-clusterrole-istio-system.yaml
+- ./validatingwebhookconfiguration-istio-validator-istio-system.yaml
+- ./deployment-istiod.yaml
+- ./serviceaccount-istio-reader-service-account.yaml
+- ./role-istiod.yaml
+- ./clusterrolebinding-istiod-clusterrole-istio-system.yaml
+- ./serviceaccount-istiod.yaml
+- ./service-istiod.yaml
+- ./mutatingwebhookconfiguration-istio-sidecar-injector.yaml
+- ./clusterrolebinding-istio-reader-clusterrole-istio-system.yaml
+- ./poddisruptionbudget-istiod.yaml
+- ./clusterrole-istio-reader-clusterrole-istio-system.yaml
+- ./configmap-istio-sidecar-injector.yaml
+- ./configmap-istio.yaml
+- ./clusterrolebinding-istiod-gateway-controller-istio-system.yaml
+- ./clusterrole-istiod-gateway-controller-istio-system.yaml
+- ./horizontalpodautoscaler-istiod.yaml
+
+
+
+images:
+  - name: docker.io/istio/proxyv2
+    newName: registry.sighup.io/fury/istio/proxyv2
+    newTag: 1.25.2
+  - name: docker.io/istio/pilot
+    newName: registry.sighup.io/fury/istio/pilot
+    newTag: 1.25.2

@@ -1,0 +1,37 @@
+# Copyright (c) 2017-present SIGHUP s.r.l All rights reserved.
+# Use of this source code is governed by a BSD-style
+# license that can be found in the LICENSE file.
+
+---
+apiVersion: v1
+data:
+  AMBIENT_DNS_CAPTURE: "true"
+  AMBIENT_ENABLED: "true"
+  AMBIENT_IPV6: "true"
+  AMBIENT_RECONCILE_POD_RULES_ON_STARTUP: "false"
+  CHAINED_CNI_PLUGIN: "true"
+  CURRENT_AGENT_VERSION: 1.25.2
+  EXCLUDE_NAMESPACES: kube-system
+  REPAIR_BROKEN_POD_LABEL_KEY: cni.istio.io/uninitialized
+  REPAIR_BROKEN_POD_LABEL_VALUE: "true"
+  REPAIR_DELETE_PODS: "false"
+  REPAIR_ENABLED: "true"
+  REPAIR_INIT_CONTAINER_NAME: istio-validation
+  REPAIR_LABEL_PODS: "false"
+  REPAIR_REPAIR_PODS: "true"
+kind: ConfigMap
+metadata:
+  labels:
+    app: istio-cni
+    app.kubernetes.io/instance: istio
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: istio-cni
+    app.kubernetes.io/part-of: istio
+    app.kubernetes.io/version: 1.25.2
+    helm.sh/chart: cni-1.25.2
+    install.operator.istio.io/owning-resource: unknown
+    istio.io/rev: default
+    operator.istio.io/component: Cni
+    release: istio
+  name: istio-cni-config
+  namespace: istio-system

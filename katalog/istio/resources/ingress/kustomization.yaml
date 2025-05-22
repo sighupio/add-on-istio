@@ -1,0 +1,26 @@
+# Copyright (c) 2017-present SIGHUP s.r.l All rights reserved.
+# Use of this source code is governed by a BSD-style
+# license that can be found in the LICENSE file.
+
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ./service-istio-ingressgateway.yaml
+- ./rolebinding-istio-ingressgateway-sds.yaml
+- ./poddisruptionbudget-istio-ingressgateway.yaml
+- ./role-istio-ingressgateway-sds.yaml
+- ./deployment-istio-ingressgateway.yaml
+- ./horizontalpodautoscaler-istio-ingressgateway.yaml
+- ./serviceaccount-istio-ingressgateway-service-account.yaml
+
+
+
+images:
+  - name: docker.io/istio/proxyv2
+    newName: registry.sighup.io/fury/istio/proxyv2
+    newTag: 1.25.2
+  - name: docker.io/istio/pilot
+    newName: registry.sighup.io/fury/istio/pilot
+    newTag: 1.25.2

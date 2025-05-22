@@ -1,0 +1,39 @@
+# Copyright (c) 2017-present SIGHUP s.r.l All rights reserved.
+# Use of this source code is governed by a BSD-style
+# license that can be found in the LICENSE file.
+
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+
+resources:
+  - ../../base
+  - resource/jaeger-telemetry.yaml
+
+configMapGenerator:
+  - name: istio
+    namespace: istio-system
+    behavior: merge
+    options:
+      disableNameSuffixHash: true
+    files:  
+      - mesh=patches/mesh-extensionproviders.yaml
+
+#9411
+# patchesJson6902:
+# - target:
+#     group: ""
+#     version: v1
+#     kind: ConfigMap
+#     name: istio
+#     namespace: istio-system
+#   patch: |-
+#     - op: add
+#       path: /data/mesh
+#       value: |
+#         extensionProviders:
+#         - name: jaeger
+#           opentelemetry:
+#             service: jaeger-collector.observability.svc.cluster.local
+#             port: 4317 

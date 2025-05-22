@@ -42,11 +42,11 @@ setup() {
 }
 
 @test "Deploy jaeger-operator using kapp" {
-    run kapp deploy -y -a jaeger-operator -f <(kustomize build ../../istio-operator/jaeger-operator)
+    run kapp deploy -y -a jaeger-operator -f <(kustomize build ../../jaeger/jaeger-operator)
     assert_success
 }
 @test "Deploy jaeger Operated using kapp" {
-    run kapp deploy -y -a jaeger -f <(cat ../../istio-operator/jaeger-operated/jaeger.yml ../../istio-operator/jaeger/svc.yml)
+    run kapp deploy -y -a jaeger -f <(cat ../../jaeger/jaeger-operated/jaeger.yml ../../jaeger/jaeger/svc.yml)
     assert_success
 }
 @test "Verify cert-manager is installed" {

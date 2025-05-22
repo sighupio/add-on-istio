@@ -1,0 +1,39 @@
+# Copyright (c) 2017-present SIGHUP s.r.l All rights reserved.
+# Use of this source code is governed by a BSD-style
+# license that can be found in the LICENSE file.
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: istio-ingressgateway
+  namespace: istio-system
+spec:
+  type: NodePort
+  selector:
+    app: istio-ingressgateway
+    istio: ingressgateway
+  ports:
+    - name: status-port
+      port: 15021
+      protocol: TCP
+      targetPort: 15021
+    - name: http2
+      port: 80
+      nodePort: 31380
+      protocol: TCP
+      targetPort: 8080
+    - name: https
+      port: 443
+      nodePort: 31390
+      protocol: TCP
+      targetPort: 8443
+    - name: tcp-istiod
+      port: 15012
+      nodePort: 31400
+      protocol: TCP
+      targetPort: 15012
+    - name: tls
+      port: 15443
+      protocol: TCP
+      targetPort: 15443
