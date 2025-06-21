@@ -54,7 +54,10 @@ rules:
     - watch
     - patch
   - apiGroups:
+    - config.istio.io
     - networking.istio.io
+    - authentication.istio.io
+    - rbac.istio.io
     - security.istio.io
     - extensions.istio.io
     - telemetry.istio.io
@@ -104,3 +107,14 @@ rules:
     - get
     - list
     - watch
+  - apiGroups: ["gateway.networking.k8s.io"] 
+    resources:
+      - gatewayclasses
+      - gateways
+      - httproutes
+      - grpcroutes
+      - tcproutes
+      - tlsroutes
+      - udproutes
+      - referencegrants
+    verbs: ["get", "list", "watch"]
